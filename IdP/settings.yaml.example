@@ -20,9 +20,9 @@ authn:
                 json_path: passwd.json
           template: user_pass.jinja2
           page_header: "Testing log in"
-          submit_btn: "Get me in!"
-          user_label: "Nickname"
-          passwd_label: "Secret sauce"
+          submit_btn: "Login!"
+          user_label: "User Name"
+          passwd_label: "Password"
     - acr: mail_two_factor
       class: provider.authn.two_factor.MailTwoFactor
       kwargs:
@@ -36,16 +36,6 @@ authn:
                   json_path: passwd.json
           smtp_server: smtp.example.com
           outgoing_sender: sender@example.com
-    #- acr: yubikey
-    #  class: provider.authn.yubikey.YubicoOTP
-    #  kwargs:
-    #      yubikey_db: # mapping from yubikey public identity to local username
-    #          class: provider.authn.util.JSONDictDB
-    #          kwargs:
-    #              json_path: yubikeys.json
-    #      validation_server: https://example.com/wsapi/2.0/verify
-    #      client_id: 123456789
-    #      secret_key: abcdefghi
 
 userinfo:
     class: provider.authn.util.JSONDictDB
