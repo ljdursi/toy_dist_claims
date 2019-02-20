@@ -120,15 +120,9 @@ class RPServer(object):
         response = self.rp.parse_authentication_response(cherrypy.session,
                                                          kwargs["url_fragment"])
 
-        html_page = self._load_HTML_page_from_file("htdocs/welcome.html")
+        html_page = self._load_HTML_page_from_file("htdocs/success_page.html")
 
         # Support for hybrid flow
-        authz_code = None
-        try:
-            authz_code = response["code"]
-        except KeyError:
-            pass
-
         access_token = None
         try:
             access_token = response["access_token"]
@@ -142,9 +136,7 @@ class RPServer(object):
         name = userinfo["given_name"]
         profyle = userinfo["profyle_member"]
 
-        return html_page.format("{background-color: rgb(200, 255, 200);}",
-                                name, faculty, profyle, 
-                                idtoken, userinfo)
+        return html_page.format(name, faculty, profyle, idtoken, userinfo)
 
     @cherrypy.expose
     def code_flow(self, **kwargs):
