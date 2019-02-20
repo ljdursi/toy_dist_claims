@@ -2,6 +2,8 @@
 
 A simple distributed claims example using pyoidc.  These are lightly modified versions of the simple_op/simple_rp example that comes with pyoidc.
 
+![Interacting services](imgs/diagram.png)
+
 To run:
 
 ```
