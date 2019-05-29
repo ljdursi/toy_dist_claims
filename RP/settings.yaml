@@ -8,7 +8,6 @@ registration_info:
     #- "{base}/implicit_hybrid_flow"
     - "{base}:{port}/implicit_hybrid_flow"
   response_types:
-    #- code
     - code id_token token
 
 # parameters for authentication request
@@ -18,8 +17,6 @@ behaviour:
     - profile
   acr_values:
     - password
-    - mail_two_factor
-    - yubikey
 
 
 server:
