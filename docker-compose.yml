@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  idp:
+    build: ./IdP
+    restart: always
+    ports:
+     - "443:443"
+    links:
+     - rp
+
+  rp:
+    build: ./RP
+    ports:
+     - "8000:8000"
+    links:
+     - claims_provider
+
+  claims_provider:
+    build: ./claims_provider
+    ports:
+     - "5000:5000"

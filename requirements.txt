@@ -1,6 +1,0 @@
-Flask
-oic
-cherrypy
-pyyaml
-yubico-client==1.9.1
-PyJWT
