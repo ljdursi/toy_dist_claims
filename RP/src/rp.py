@@ -173,7 +173,7 @@ class RPServer(object):
 def main():
     parser = argparse.ArgumentParser(description='Example OIDC Client.')
     parser.add_argument("-p", "--port", default=80, type=int)
-    parser.add_argument("-b", "--base", default="https://127.0.0.1", type=str)
+    parser.add_argument("-b", "--base", default="https://0.0.0.0", type=str)
     parser.add_argument("settings")
     args = parser.parse_args()
 
@@ -198,7 +198,7 @@ def main():
     cherrypy.config.update({
         'tools.sessions.on': True,
         'server.socket_port': args.port,
-        'server.socket_host': '127.0.0.1'
+        'server.socket_host': '0.0.0.0'
     })
 
     if baseurl.startswith("https://"):

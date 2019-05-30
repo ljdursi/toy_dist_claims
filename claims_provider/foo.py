@@ -15,6 +15,7 @@ member_list = ['babs0001', 'uppe0001']
 def echo(subject):
     for key in request.args:
         print('args[', key, '] = ', request.args[key])
+    print('subject: ', subject)
     print(request.method, file=sys.stderr)
     print(request.get_json(), file=sys.stderr)
     token = is_member if subject in member_list else isnt_member
@@ -22,4 +23,4 @@ def echo(subject):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')

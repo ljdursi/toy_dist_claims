@@ -3,7 +3,6 @@ services:
 
   idp:
     build: ./IdP
-    restart: always
     ports:
      - "443:443"
 

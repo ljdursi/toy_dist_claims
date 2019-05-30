@@ -6,4 +6,4 @@ RUN apk add build-base \
     && apk add openssl-dev \
     && pip install -r requirements.txt
 EXPOSE 443
-CMD ["python3", "src/run.py", "settings.yaml", "-p 443"]
+CMD ["python3", "src/run.py", "settings.yaml", "-p", "443", "-b", "https://0.0.0.0"]

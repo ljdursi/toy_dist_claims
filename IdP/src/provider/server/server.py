@@ -173,7 +173,7 @@ def make_static_handler(static_dir):
 def main():
     parser = argparse.ArgumentParser(description='Example OIDC Provider.')
     parser.add_argument("-p", "--port", default=80, type=int)
-    parser.add_argument("-b", "--base", default="https://localhost", type=str)
+    parser.add_argument("-b", "--base", default="https://0.0.0.0", type=str)
     parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("settings")
     args = parser.parse_args()
@@ -228,7 +228,7 @@ def main():
     routing = dict(list(auth_routing.items()) + list(app_routing.items()))
     routing["/static"] = make_static_handler(path)
     dispatcher = WSGIPathInfoDispatcher(routing)
-    server = WSGIServer(('127.0.0.1', args.port), dispatcher)
+    server = WSGIServer(('0.0.0.0', args.port), dispatcher)
     server.ssl_adapter = BuiltinSSLAdapter(settings["server"]["cert"],
                                            settings["server"]["key"],
                                            settings["server"]["cert_chain"])

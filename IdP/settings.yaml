@@ -23,19 +23,6 @@ authn:
           submit_btn: "Login!"
           user_label: "User Name"
           passwd_label: "Password"
-    - acr: mail_two_factor
-      class: provider.authn.two_factor.MailTwoFactor
-      kwargs:
-          user_db:
-              class: provider.authn.util.JSONDictDB
-              kwargs:
-                  json_path: users.json
-          passwd_db:
-              class: provider.authn.util.JSONDictDB
-              kwargs:
-                  json_path: passwd.json
-          smtp_server: smtp.example.com
-          outgoing_sender: sender@example.com
 
 userinfo:
     class: provider.authn.util.JSONDictDB
