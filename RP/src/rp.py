@@ -52,7 +52,10 @@ class OIDCExampleRP(object):
         raise cherrypy.HTTPRedirect(login_url, 303)
 
     def parse_authentication_response(self, session, query_string):
-        print(session._data, file=sys.stderr)
+        print("Session:", file=sys.stderr)
+        print(session, file=sys.stderr)
+        print("Query string:", file=sys.stderr)
+        print(query_string, file=sys.stderr)
         auth_response = session["client"].parse_response(AuthorizationResponse,
                                                          info=query_string,
                                                          sformat="urlencoded")
@@ -103,7 +106,7 @@ class RPServer(object):
     def authenticate(self, uid):
         #TODO: Why did I have to do this?  I am not sure this is correct
         keys = [
-            {"type": "RSA", "key": "../IdP/keys/key.pem", "use": ["enc", "sig"]},
+            {"type": "RSA", "key": "keys/key.pem", "use": ["enc", "sig"]},
         ]
         _, keyjar, _ = build_keyjar(keys)
         cherrypy.session["client"] = Client(verify_ssl=self.verify_ssl, keyjar=keyjar)

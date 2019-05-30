@@ -19,7 +19,7 @@
          "profyle_member": "src1"
     },
     "_claim_sources": {
-         "src1": {"endpoint": "http://localhost:5000/claim_source/dikr0001"}
+         "src1": {"endpoint": "http://claims_provider:5000/claim_source/dikr0001"}
     }
   },
   "babs": {
@@ -42,7 +42,7 @@
          "profyle_member": "src1"
     },
     "_claim_sources": {
-         "src1": {"endpoint": "http://localhost:5000/claim_source/babs0001"}
+         "src1": {"endpoint": "http://claims_provider:5000/claim_source/babs0001"}
     }
   },
   "upper": {
@@ -57,7 +57,7 @@
          "profyle_member": "src1"
     },
     "_claim_sources": {
-         "src1": {"endpoint": "http://localhost:5000/claim_source/uppe0001"}
+         "src1": {"endpoint": "http://claims_provider:5000/claim_source/uppe0001"}
     }
   }
 }

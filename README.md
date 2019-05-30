@@ -4,38 +4,21 @@ A simple distributed claims example using pyoidc.  These are lightly modified ve
 
 ![Interacting services](imgs/diagram.png)
 
-To run:
+To run, add the following lines to `/etc/hosts`:
 
 ```
-virtualenv distclaims
-source distclaims/bin/activate
-pip3 install -r requirements.txt
+0.0.0.0 idp
+0.0.0.0 rp
+0.0.0.0 claims_provider
 ```
 
-In one terminal run the IdP
+Run the services:
 
 ```
-source distclaims/bin/activate
-cd IdP
-sudo python3 src/run.py settings.yaml.example -p 443
+docker-compose up 
 ```
 
-In one terminal run the RP (relying party - the site using the IdP and claims provider)
-
-```
-source distclaims/bin/activate
-cd RP
-python3 src/rp.py settings.yaml.example -p 8000
-```
-
-And in another, run the claims provider:
-```
-source distclaims/bin/activate
-cd claims_provider
-python3 foo.py
-```
-
-Then proceed to https://localhost:8000 (note - self-signed certifcates, may cause some problems) and provide the IdP hostname (localhost)
+Then proceed to https://rp:8000 (note - self-signed certifcates, may cause some problems) and provide the IdP hostname (idp)
 
 Then log in with:
 
